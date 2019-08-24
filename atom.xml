@@ -1,162 +1,28 @@
+---
+layout: null
+---
+
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://debugjoker.github.io</id>
-    <title>夏木逢秋</title>
-    <updated>2019-08-24T11:04:48.381Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://debugjoker.github.io"/>
-    <link rel="self" href="https://debugjoker.github.io/atom.xml"/>
-    <subtitle>松月生夜凉，风泉满清听。</subtitle>
-    <logo>https://debugjoker.github.io/images/avatar.png</logo>
-    <icon>https://debugjoker.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, 夏木逢秋</rights>
-    <entry>
-        <title type="html"><![CDATA[数字签名是什么]]></title>
-        <id>https://debugjoker.github.io/post/shu-zi-qian-ming-shi-shi-me</id>
-        <link href="https://debugjoker.github.io/post/shu-zi-qian-ming-shi-shi-me">
-        </link>
-        <updated>2019-02-10T11:02:40.000Z</updated>
-        <summary type="html"><![CDATA[<p>数字签名技术是将摘要信息用发送者的私钥加密，与原文一起传送给接收者。接收者只有用发送者的公钥才能解密被加密的摘要信息，然后用HASH函数对收到的原文产生一个摘要信息，与解密的摘要信息对比。如果相同，则说明收到的信息是完整的，在传输过程中没有被修改，否则说明信息被修改过，因此数字签名能够验证信息的完整性。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>数字签名技术是将摘要信息用发送者的私钥加密，与原文一起传送给接收者。接收者只有用发送者的公钥才能解密被加密的摘要信息，然后用HASH函数对收到的原文产生一个摘要信息，与解密的摘要信息对比。如果相同，则说明收到的信息是完整的，在传输过程中没有被修改，否则说明信息被修改过，因此数字签名能够验证信息的完整性。</p>
-<!-- more -->
-<p><strong>数字签名是什么？</strong></p>
-<p>作者：David Youd</p>
-<p>翻译：阮一峰</p>
-<p>原文网址：<a href="https://www.youdzone.com/signature.html">https://www.youdzone.com/signature.html</a></p>
-<p>译文地址：<a href="https://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html?tdsourcetag=s_pctim_aiomsg">https://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html?tdsourcetag=s_pctim_aiomsg</a></p>
-<ol>
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080901.png" alt="img"></p>
-<p>鲍勃有两把钥匙，一把是公钥，另一把是私钥。</p>
-<ol start="2">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080902.png" alt="img"></p>
-<p>鲍勃把公钥送给他的朋友们----帕蒂、道格、苏珊----每人一把。</p>
-<ol start="3">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080903.png" alt="img"></p>
-<p>苏珊要给鲍勃写一封保密的信。她写完后用鲍勃的公钥加密，就可以达到保密的效果。</p>
-<ol start="4">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080904.png" alt="img"></p>
-<p>鲍勃收信后，用私钥解密，就看到了信件内容。这里要强调的是，只要鲍勃的私钥不泄露，这封信就是安全的，即使落在别人手里，也无法解密。</p>
-<ol start="5">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080905.png" alt="img"></p>
-<p>鲍勃给苏珊回信，决定采用&quot;数字签名&quot;。他写完后先用Hash函数，生成信件的摘要（digest）。</p>
-<ol start="6">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080906.png" alt="img"></p>
-<p>然后，鲍勃使用私钥，对这个摘要加密，生成&quot;数字签名&quot;（signature）。</p>
-<ol start="7">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080907.png" alt="img"></p>
-<p>鲍勃将这个签名，附在信件下面，一起发给苏珊。</p>
-<ol start="8">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080908.png" alt="img"></p>
-<p>苏珊收信后，取下数字签名，用鲍勃的公钥解密，得到信件的摘要。由此证明，这封信确实是鲍勃发出的。</p>
-<ol start="9">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080909.png" alt="img"></p>
-<p>苏珊再对信件本身使用Hash函数，将得到的结果，与上一步得到的摘要进行对比。如果两者一致，就证明这封信未被修改过。</p>
-<ol start="10">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080910.png" alt="img"></p>
-<p>复杂的情况出现了。道格想欺骗苏珊，他偷偷使用了苏珊的电脑，用自己的公钥换走了鲍勃的公钥。此时，苏珊实际拥有的是道格的公钥，但是还以为这是鲍勃的公钥。因此，道格就可以冒充鲍勃，用自己的私钥做成&quot;数字签名&quot;，写信给苏珊，让苏珊用假的鲍勃公钥进行解密。</p>
-<ol start="11">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080911.png" alt="img"></p>
-<p>后来，苏珊感觉不对劲，发现自己无法确定公钥是否真的属于鲍勃。她想到了一个办法，要求鲍勃去找&quot;证书中心&quot;（certificate authority，简称CA），为公钥做认证。证书中心用自己的私钥，对鲍勃的公钥和一些相关信息一起加密，生成&quot;数字证书&quot;（Digital Certificate）。</p>
-<ol start="12">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080912.png" alt="img"></p>
-<p>鲍勃拿到数字证书以后，就可以放心了。以后再给苏珊写信，只要在签名的同时，再附上数字证书就行了。</p>
-<ol start="13">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080913.png" alt="img"></p>
-<p>苏珊收信后，用CA的公钥解开数字证书，就可以拿到鲍勃真实的公钥了，然后就能证明&quot;数字签名&quot;是否真的是鲍勃签的。</p>
-<ol start="14">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080914.jpg" alt="img"></p>
-<p>下面，我们看一个应用&quot;数字证书&quot;的实例：https协议。这个协议主要用于网页加密。</p>
-<ol start="15">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080915.png" alt="img"></p>
-<p>首先，客户端向服务器发出加密请求。</p>
-<ol start="16">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080916.png" alt="img"></p>
-<p>服务器用自己的私钥加密网页以后，连同本身的数字证书，一起发送给客户端。</p>
-<ol start="17">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080917.png" alt="img"></p>
-<p>客户端（浏览器）的&quot;证书管理器&quot;，有&quot;受信任的根证书颁发机构&quot;列表。客户端会根据这张列表，查看解开数字证书的公钥是否在列表之内。</p>
-<ol start="18">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080918.png" alt="img"></p>
-<p>如果数字证书记载的网址，与你正在浏览的网址不一致，就说明这张证书可能被冒用，浏览器会发出警告。</p>
-<ol start="19">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080919.jpg" alt="img"></p>
-<p>如果这张数字证书不是由受信任的机构颁发的，浏览器会发出另一种警告。</p>
-<ol start="20">
-<li></li>
-</ol>
-<p><img src="https://www.ruanyifeng.com/blogimg/asset/201108/bg2011080920.png" alt="img"></p>
-<p>如果数字证书是可靠的，客户端就可以使用证书中的服务器公钥，对信息进行加密，然后与服务器交换加密信息。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://debugjoker.github.io/post/hello-gridea</id>
-        <link href="https://debugjoker.github.io/post/hello-gridea">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
+<feed xmlns="https://www.w3.org/2005/Atom">
+
+ <title>{{site.title}}</title>
+ <link href="{{site.url | prepend:site.baseurl}}/atom.xml" rel="self"/>
+ <link href="{{site.url | prepend:site.baseurl}}/"/>
+ <updated>{{site.time | date_to_xmlschema}}</updated>
+ <id>{{site.url}}</id>
+ <author>
+   <name>{{site.author.name}}</name>
+   <email>{{site.author.email}}</email>
+ </author>
+
+ {% for post in site.posts %}
+ <entry>
+   <title>{{post.title | xml_escape}}</title>
+   <link href="{{site.url | prepend:site.baseurl}}{{post.url}}"/>
+   <updated>{{post.date | date_to_xmlschema}}</updated>
+   <id>{{site.url}}{{post.id}}</id>
+   <content type="html">{{post.content | xml_escape}}</content>
+ </entry>
+ {% endfor %}
+
 </feed>
